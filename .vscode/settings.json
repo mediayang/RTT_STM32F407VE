@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "rthw.h": "c",
+        "rtthread.h": "c",
+        "board.h": "c",
+        "stm32f4xx.h": "c",
+        "xtr1common": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}
