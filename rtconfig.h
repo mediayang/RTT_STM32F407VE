@@ -89,7 +89,11 @@
 /* RT_USING_RTC is not set */
 /* RT_USING_SDIO is not set */
 #define RT_USING_SPI
-#define RT_USING_SPI1
+#define RT_USING_SPI2
+#define SPI_BUS_NAME    "spi2"
+
+/* #define RT_USING_MPU9250 */
+#define RT_USING_ICM20602
 /* RT_USING_WDT is not set */
 /* RT_USING_WIFI is not set */
 

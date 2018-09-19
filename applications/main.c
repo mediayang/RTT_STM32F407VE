@@ -53,17 +53,6 @@ int main(void)
   if (tid != RT_NULL)
     rt_thread_startup(tid);
 
-/* 创建led线程 */
-  tid = rt_thread_create("sensor",
-                         sensor_thread_entry,
-                         RT_NULL,
-                         1024,
-                         3,
-                         10);
-  /* 创建成功则启动线程 */
-  if (tid != RT_NULL)
-    rt_thread_startup(tid);
-
   return 0;
 }
 

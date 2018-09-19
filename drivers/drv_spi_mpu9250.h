@@ -102,6 +102,23 @@
 #define   ZA_OFFSET_H          0x7D
 #define   ZA_OFFSET_L          0x7E
 
+//--------------------AK8963 reg addr------------------------//
+#define MPU9250_AK8963_ADDR                 0x0C  //AKM addr
+#define AK8963_WHOAMI_REG                   0x00  //AKM ID addr
+#define AK8963_WHOAMI_ID                    0x48  //ID
+#define AK8963_ST1_REG                      0x02  //Data Status1
+#define AK8963_ST2_REG                      0x09  //Data reading end register & check Magnetic sensor overflow occurred
+#define AK8963_ST1_DOR                      0x02
+#define AK8963_ST1_DRDY                     0x01 //Data Ready
+#define AK8963_ST2_BITM                     0x10
+#define AK8963_ST2_HOFL                     0x08 // Magnetic sensor overflow 
+#define AK8963_CNTL1_REG                    0x0A
+#define AK8963_CNTL2_REG                    0x0B
+#define AK8963_CNTL2_SRST                   0x01 //soft Reset
+#define AK8963_ASAX                         0x10 //X-axis sensitivity adjustment value 
+#define AK8963_ASAY                         0x11 //Y-axis sensitivity adjustment value
+#define AK8963_ASAZ                         0x12 //Z-axis sensitivity adjustment value
+
 #define   MPU9250_RESET        0x80
 #define   MPU9250_CLOCK_PLLGYROZ 0x03
 #define   MPU9250_XYZ_GYRO     0xC7
@@ -109,14 +126,16 @@
 #define   MPU9250_SMPLRT_DIV   0   //采样不分频 1000/（1+0）=1KHz
 
 #define MPU9250_READ_MARK           0x80
-#define SPI_BUS_NAME                "spi1"
-#define SPI_MPU9250_DEVICE_NAME     "spi10"
+#define SPI_BUS_NAME                "spi2"
+#define SPI_MPU9250_DEVICE_NAME     "spi20"
 #define cs_pin                      29   //PA4做为片选管脚
 #include "drv_spi.h"
 
 extern int rt_hw_mpu9250_spi_init(void);
 extern rt_int8_t mpu9250_readData(rt_int8_t reg);
 extern void mpu9250_write_cmd(const rt_uint8_t reg, rt_uint8_t value);
+
+extern void getDeviceID();
 
 
 #endif

@@ -17,7 +17,13 @@ if GetDepend(['RT_USING_SERIAL']):
     src += ['drv_usart.c']
 
 if GetDepend(['RT_USING_SPI']):
-    src += ['drv_spi.c', 'drv_spi_mpu9250.c']
+    src += ['drv_spi.c']
+
+if GetDepend(['RT_USING_ICM20602']):
+    src += ['icm20602.c']
+
+if GetDepend(['RT_USING_MPU9250']):
+    src += ['drv_spi_mpu9250.c']
 
 if GetDepend(['RT_USING_W25QXX']):
     src += ['drv_spiflash.c']
